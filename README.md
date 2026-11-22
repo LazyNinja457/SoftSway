@@ -8,12 +8,14 @@ Works with **Koikatsu / Koikatsu Party** and **Koikatsu Sunshine**. Open the win
 
 ## Download
 
-| Game | File |
-|---|---|
-| Koikatsu / Koikatsu Party | [`release/KK_SoftSway_v1.0.0.zip`](release/KK_SoftSway_v1.0.0.zip) |
-| Koikatsu Sunshine | [`release/KKS_SoftSway_v1.0.0.zip`](release/KKS_SoftSway_v1.0.0.zip) |
+**[⬇ Latest release](https://github.com/LazyNinja457/SoftSway/releases/latest)**
 
-Open the file link, then click **Download raw file** (the download icon at the top right).
+| Game | Direct download (v1.0.0) |
+|---|---|
+| Koikatsu / Koikatsu Party | [**KK_SoftSway_v1.0.0.zip**](https://github.com/LazyNinja457/SoftSway/releases/download/v1.0.0/KK_SoftSway_v1.0.0.zip) |
+| Koikatsu Sunshine | [**KKS_SoftSway_v1.0.0.zip**](https://github.com/LazyNinja457/SoftSway/releases/download/v1.0.0/KKS_SoftSway_v1.0.0.zip) |
+
+Only download the one for your game. Older and newer versions are on the [Releases page](https://github.com/LazyNinja457/SoftSway/releases).
 
 ---
 

@@ -1,0 +1,40 @@
+<Project>
+  <PropertyGroup>
+    <Version>1.0.0</Version>
+    <Product>SoftSway</Product>
+    <AssemblyTitle>Simple breast and butt jiggle physics control</AssemblyTitle>
+    <Copyright>GPL-3.0</Copyright>
+    <RootNamespace>SoftSway</RootNamespace>
+    <OutputType>Library</OutputType>
+    <LangVersion>7.3</LangVersion>
+    <OutputPath>..\bin\$(MSBuildProjectName)\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <DebugType>embedded</DebugType>
+    <Deterministic>true</Deterministic>
+    <Optimize Condition="'$(Configuration)' == 'Release'">true</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\*.cs" />
+  </ItemGroup>
+
+  <!-- Game / modding API assemblies are provided by the game install: never copy them to the output. -->
+  <Target Name="SkipAllRefs" AfterTargets="ResolveReferences">
+    <ItemGroup>
+      <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" />
+    </ItemGroup>
+  </Target>
+
+  <!-- Release zip laid out exactly like the game folder: BepInEx\plugins\SoftSway\*.dll -->
+  <Target Name="CreateReleaseZip" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+    <PropertyGroup>
+      <ZipStage>$(OutputPath)..\_zip_$(MSBuildProjectName)</ZipStage>
+    </PropertyGroup>
+    <RemoveDir Directories="$(ZipStage)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ZipStage)\BepInEx\plugins\SoftSway" />
+    <Copy SourceFiles="..\README.md;..\LICENSE" DestinationFolder="$(ZipStage)\BepInEx\plugins\SoftSway" />
+    <ZipDirectory SourceDirectory="$(ZipStage)" DestinationFile="$(OutputPath)..\$(MSBuildProjectName)_v$(Version).zip" Overwrite="true" />
+    <RemoveDir Directories="$(ZipStage)" />
+  </Target>
+</Project>
